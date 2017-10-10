@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="SYBChat">
+			<h1>在线客服咨询<i>x</i></h1>
+			<div class="SYBChat_content">
+				<ul class="conversation">
+					<li class="showtime">没有更多了</li>
+					<li class="showtime">2017-10-09 17:16:46</li>
+					<li class="chatmsg clearfix">
+						<p class="service-name">在线咨询客服</p>
+						<div class="outer-left">
+							<span></span>
+							<div class="service">
+								您好，欢迎光临
+							</div>
+						</div>
+					</li>
+					<li class="chatmsg clearfix">
+						<p class="service-name">在线咨询客服</p>
+						<div class="outer-left">
+							<span></span>
+							<div class="service">
+								您好，欢迎光临
+							</div>
+						</div>
+					</li>
+					<li class="chatmsg clearfix">
+						<p class="service-name">在线咨询客服</p>
+						<div class="outer-left">
+							<span></span>
+							<div class="service">
+								您好，欢迎光临
+							</div>
+						</div>
+					</li>
+					<li class="chatmsg clearfix">
+						<p class="service-name">在线咨询客服</p>
+						<div class="outer-left">
+							<span></span>
+							<div class="service">
+								您好，欢迎光临
+							</div>
+						</div>
+					</li>
+					<li class="chatmsg clearfix">
+						<div class="outer-right">
+							<span></span>
+							<div class="service">
+								您好，欢迎光临
+							</div>
+						</div>
+					</li>
+				</ul>
+				 <textarea></textarea>
+				 <button class="abt">发送</button>
+				 <span class="text">快捷键:Enter</span>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(".abt").click(function(){
+				var tex=$(".SYBChat_content textarea").val()
+				$(".conversation li").last().after(
+					`
+					<li class="chatmsg clearfix">
+						<div class="outer-right">
+							<span></span>
+							<div class="service">
+								${tex}
+							</div>
+						</div>
+					</li>
+					
+					`
+				)
+			$('.conversation').scrollTop( $('.conversation')[0].scrollHeight );
+			$(".SYBChat_content textarea").val('')
+			})
+			$(document).keydown(function(event){
+				if(event.keyCode == 13){ //绑定回车 
+					$(".abt").click()
+				} 
+			}); 
+			$('.conversation').scrollTop( $('.conversation')[0].scrollHeight );
+			$(".SYBChat h1 i").click(function(){
+				$(".SYBChat").css("display","none")
+			})
+		</script>
+	</body>
+</html>
